@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>MarketPlace Verlaz - Verlaz</title>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 112%; margin: 0; background: #f4f4f4; }
+    .sidebar {
+        width: 220px; background: #e0e0e0; height: 100vh; position: fixed; padding: 20px;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar h2 { font-size: 20px; margin-bottom: 5px; font-weight: bold; }
+    .sidebar p { font-size: 14px; font-weight: bold; margin-bottom: 20px; }
+    .sidebar ul { list-style: none; padding: 0; font-size: 13px; }
+    .sidebar li { margin-bottom: 10px; }
+    .sidebar .logout { color: red; font-weight: bold; font-size: 13px; display: block; margin-top: 20px; }
+
+    .container { margin-left: 240px; padding: 20px; }
+    .container h1 { font-size: 24px; margin-bottom: 20px; }
+
+    .mes-section { margin-bottom: 30px; border-radius: 8px; padding: 15px; }
+    .mes-title { font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+
+    .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 18px;
+        padding-bottom: 10px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        width: 270px;
+        padding: 18px;
+        flex-shrink: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 1.2;
+    }
+
+    .card .emoji { font-size: 90px; margin-bottom: 10px; }
+    .card h3 { margin: 5px 0; font-size: 16px; font-weight: bold; }
+    .card p { margin: 3px 0; font-size: 13px; }
+    .card a { margin-top: 8px; font-size: 13px; color: #0070d2; text-decoration: underline; cursor: pointer; }
+    .card textarea {
+        margin-top: 10px;
+        font-size: 13px;
+        padding: 6px;
+        width: 100%;
+        height: 50px;
+        resize: none;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .card button, .card .whatsapp-btn {
+        margin-top: 6px;
+        background: #0070d2;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .card .whatsapp-btn {
+        background: #25D366;
+        display: inline-block;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        width: 400px;
+        z-index: 1000;
+        font-size: 14px;
+    }
+
+    .popup button {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 999;
+    }
+  </style>
+
+<style>
+  @media screen and (max-width: 768px) {
+    .card-container, .row, .col {
+      flex-direction: column !important;
+      width: 100% !important;
+      align-items: center;
+    }
+    .card {
+      width: 90% !important;
+      margin: 10px auto;
+    }
+    .navbar, .sidebar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <div class="sidebar">
+    <h2>VZ VERLAZ</h2>
+    <p>MarketPlace Verlaz</p>
+    <ul>
+      <li>Menu Negócio</li>
+      <li>Cadastros</li>
+      <li>Semáforos</li>
+      <li>Business</li>
+      <li><strong>MarketPlace Verlaz</strong></li>
+      <li>Inteligência</li>
+      <li>Suporte</li>
+    </ul>
+    <a href="#" class="logout">Sair do Sistema</a>
+  </div>
+  <div class="container">
+    <h1>MarketPlace Verlaz</h1>
+
+    <div class="mes-section" style="background-color: #e3f2fd;">
+      <div class="mes-title">🗓️ Julho/2025</div>
+      <div class="scroll-container">
+    
+        <div class="card" id="card0">
+          <div class="emoji">📦</div>
+          <h3>Borracha Natural RSS-1</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/07/2025</p>
+          <p><strong>Entrega:</strong> 20/07/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup0').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card0', `Tudo bom? Chegando em Julho/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup0">
+          <h3>Borracha Natural RSS-1</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup0').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card1">
+          <div class="emoji">📦</div>
+          <h3>Borracha SBR 1502</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/07/2025</p>
+          <p><strong>Entrega:</strong> 20/07/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup1').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card1', `Tudo bom? Chegando em Julho/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup1">
+          <h3>Borracha SBR 1502</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup1').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card2">
+          <div class="emoji">📦</div>
+          <h3>Borracha Nitrílica NBR-30</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/07/2025</p>
+          <p><strong>Entrega:</strong> 20/07/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup2').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card2', `Tudo bom? Chegando em Julho/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup2">
+          <h3>Borracha Nitrílica NBR-30</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup2').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card3">
+          <div class="emoji">📦</div>
+          <h3>Borracha Butílica BR-10</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/07/2025</p>
+          <p><strong>Entrega:</strong> 20/07/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup3').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card3', `Tudo bom? Chegando em Julho/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup3">
+          <h3>Borracha Butílica BR-10</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup3').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        </div></div>
+    <div class="mes-section" style="background-color: #fce4ec;">
+      <div class="mes-title">🗓️ Agosto/2025</div>
+      <div class="scroll-container">
+    
+        <div class="card" id="card4">
+          <div class="emoji">📦</div>
+          <h3>Borracha Silicônica LSR</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/08/2025</p>
+          <p><strong>Entrega:</strong> 20/08/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup4').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card4', `Tudo bom? Chegando em Agosto/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup4">
+          <h3>Borracha Silicônica LSR</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup4').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card5">
+          <div class="emoji">📦</div>
+          <h3>Borracha CR (Neoprene)</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/08/2025</p>
+          <p><strong>Entrega:</strong> 20/08/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup5').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card5', `Tudo bom? Chegando em Agosto/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup5">
+          <h3>Borracha CR (Neoprene)</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup5').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card6">
+          <div class="emoji">📦</div>
+          <h3>Polietileno Linear</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/08/2025</p>
+          <p><strong>Entrega:</strong> 20/08/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup6').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card6', `Tudo bom? Chegando em Agosto/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup6">
+          <h3>Polietileno Linear</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup6').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card7">
+          <div class="emoji">📦</div>
+          <h3>Polipropileno Homopolímero</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/08/2025</p>
+          <p><strong>Entrega:</strong> 20/08/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup7').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card7', `Tudo bom? Chegando em Agosto/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup7">
+          <h3>Polipropileno Homopolímero</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup7').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        </div></div>
+    <div class="mes-section" style="background-color: #e8f5e9;">
+      <div class="mes-title">🗓️ Setembro/2025</div>
+      <div class="scroll-container">
+    
+        <div class="card" id="card8">
+          <div class="emoji">📦</div>
+          <h3>PVC Suspensão</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/09/2025</p>
+          <p><strong>Entrega:</strong> 20/09/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup8').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card8', `Tudo bom? Chegando em Setembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup8">
+          <h3>PVC Suspensão</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup8').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card9">
+          <div class="emoji">📦</div>
+          <h3>ABS Granulado</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/09/2025</p>
+          <p><strong>Entrega:</strong> 20/09/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup9').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card9', `Tudo bom? Chegando em Setembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup9">
+          <h3>ABS Granulado</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup9').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card10">
+          <div class="emoji">📦</div>
+          <h3>Poliestireno Cristal</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/09/2025</p>
+          <p><strong>Entrega:</strong> 20/09/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup10').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card10', `Tudo bom? Chegando em Setembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup10">
+          <h3>Poliestireno Cristal</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup10').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card11">
+          <div class="emoji">📦</div>
+          <h3>Resina PET Virgem</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/09/2025</p>
+          <p><strong>Entrega:</strong> 20/09/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup11').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card11', `Tudo bom? Chegando em Setembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup11">
+          <h3>Resina PET Virgem</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup11').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        </div></div>
+    <div class="mes-section" style="background-color: #fff3e0;">
+      <div class="mes-title">🗓️ Outubro/2025</div>
+      <div class="scroll-container">
+    
+        <div class="card" id="card12">
+          <div class="emoji">📦</div>
+          <h3>Masterbatch Preto</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/10/2025</p>
+          <p><strong>Entrega:</strong> 20/10/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup12').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card12', `Tudo bom? Chegando em Outubro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup12">
+          <h3>Masterbatch Preto</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup12').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card13">
+          <div class="emoji">📦</div>
+          <h3>Copolímero EVA</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/10/2025</p>
+          <p><strong>Entrega:</strong> 20/10/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup13').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card13', `Tudo bom? Chegando em Outubro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup13">
+          <h3>Copolímero EVA</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup13').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card14">
+          <div class="emoji">📦</div>
+          <h3>TPU Flexível</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/10/2025</p>
+          <p><strong>Entrega:</strong> 20/10/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup14').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card14', `Tudo bom? Chegando em Outubro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup14">
+          <h3>TPU Flexível</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup14').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card15">
+          <div class="emoji">📦</div>
+          <h3>Nylon 6 Reprocessado</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/10/2025</p>
+          <p><strong>Entrega:</strong> 20/10/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup15').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card15', `Tudo bom? Chegando em Outubro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup15">
+          <h3>Nylon 6 Reprocessado</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup15').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        </div></div>
+    <div class="mes-section" style="background-color: #ede7f6;">
+      <div class="mes-title">🗓️ Novembro/2025</div>
+      <div class="scroll-container">
+    
+        <div class="card" id="card16">
+          <div class="emoji">📦</div>
+          <h3>HDPE Sopragem</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/11/2025</p>
+          <p><strong>Entrega:</strong> 20/11/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup16').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card16', `Tudo bom? Chegando em Novembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup16">
+          <h3>HDPE Sopragem</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup16').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card17">
+          <div class="emoji">📦</div>
+          <h3>LDPE Reciclado</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/11/2025</p>
+          <p><strong>Entrega:</strong> 20/11/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup17').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card17', `Tudo bom? Chegando em Novembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup17">
+          <h3>LDPE Reciclado</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup17').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card18">
+          <div class="emoji">📦</div>
+          <h3>Resina Acrílica</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/11/2025</p>
+          <p><strong>Entrega:</strong> 20/11/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup18').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card18', `Tudo bom? Chegando em Novembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup18">
+          <h3>Resina Acrílica</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup18').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        
+        <div class="card" id="card19">
+          <div class="emoji">📦</div>
+          <h3>Carbonato de Cálcio</h3>
+          <p><strong>Marca:</strong> Verlindo Carbon</p>
+          <p><strong>Chegada:</strong> 10/11/2025</p>
+          <p><strong>Entrega:</strong> 20/11/2025</p>
+          <p><strong>ICMS de Venda:</strong> 4%</p>
+          <p><strong>CIF:</strong> R$ 8,90</p>
+          <p><strong>FOB:</strong> R$ 6,75</p>
+          <a onclick="document.getElementById('popup19').style.display='block';document.getElementById('overlay').style.display='block';">Ver Detalhes do Produto</a>
+          <textarea placeholder="Envie sua mensagem!"></textarea>
+          <button onclick="alert('Obrigado! Sua mensagem foi enviada com sucesso. Em breve o setor comercial do Verlaz responderá.')">Enviar</button>
+          <button class="whatsapp-btn" onclick="compartilharViaWhatsapp('card19', `Tudo bom? Chegando em Novembro/10/2025. Vamos fazer um pedido prévio e reservar?`)">Compartilhar via WhatsApp</button>
+        </div>
+        <div class="popup" id="popup19">
+          <h3>Carbonato de Cálcio</h3>
+          <p>📄 <a href="#">Ficha Técnica (PDF)</a></p>
+          <p>🧪 <a href="#">MSDS (PDF)</a></p>
+          <p>🖼️ Imagem: <span style='font-size:3000%'>📦</span></p>
+          <p>📘 Explicação Comercial: Produto de uso petroquímico com aplicações industriais amplas.</p>
+          <button onclick="document.getElementById('popup19').style.display='none';document.getElementById('overlay').style.display='none';">Fechar</button>
+        </div>
+        </div></div>
+<div class="overlay" id="overlay" onclick="this.style.display='none';document.querySelectorAll('.popup').forEach(p=>p.style.display='none');"></div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+function compartilharViaWhatsapp(cardId, mensagem) {
+  const card = document.getElementById(cardId);
+  html2canvas(card).then(canvas => {
+    const img = canvas.toDataURL("image/png");
+    const text = encodeURIComponent(mensagem);
+    const link = `https://wa.me/?text=${text}%0A${encodeURIComponent(img)}`;
+    window.open(link, '_blank');
+  });
+}
+</script>
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+function compartilharCard(cardId, dataChegada) {
+  const card = document.getElementById(cardId);
+  const mensagem = `Tudo bom? Chegando em ${dataChegada}. Vamos fazer um pedido prévio e reservar?`;
+
+  html2canvas(card).then(canvas => {
+    const link = document.createElement('a');
+    link.download = "card.png";
+    link.href = canvas.toDataURL("image/png");
+
+    const blob = canvas.toDataURL("image/png");
+    const encodedMessage = encodeURIComponent(mensagem);
+    const urlWhatsApp = `https://wa.me/?text=${encodedMessage}`;
+
+    window.open(urlWhatsApp, '_blank');
+  });
+}
+</script>
+
+
+<style>
+  #popup-confirmacao {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    max-width: 90%;
+    width: 360px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  #popup-confirmacao h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #222;
+  }
+  #popup-confirmacao p {
+    font-size: 14px;
+    color: #444;
+  }
+  #popup-confirmacao a {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #25D366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  #popup-confirmacao button {
+    margin-top: 10px;
+    background-color: transparent;
+    color: #888;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+</style>
+<div id="popup-confirmacao">
+  <h3>✅ Sua mensagem foi enviada!</h3>
+  <p>Em breve a Central Comercial Verlaz responderá.<br>Se for urgente, clique abaixo:</p>
+  <a href="https://wa.me/5551991499826" target="_blank">Falar com Urgência</a><br>
+  <button onclick="fecharPopup()">Fechar</button>
+</div>
+<script>
+function mostrarPopupConfirmacao() {
+  const popup = document.getElementById("popup-confirmacao");
+  popup.style.display = "block";
+}
+function fecharPopup() {
+  document.getElementById("popup-confirmacao").style.display = "none";
+}
+</script>
+
+</body></html>
